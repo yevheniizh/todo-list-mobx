@@ -1,6 +1,6 @@
 import {makeAutoObservable, reaction, toJS} from 'mobx';
 
-class store {
+export default class BusinessStore {
   todos = [];
   name = '';
 
@@ -29,7 +29,3 @@ class store {
     })
   }
 }
-
-const todoStore = new store();
-
-export default todoStore;

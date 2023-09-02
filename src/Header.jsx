@@ -1,9 +1,8 @@
 import {observer} from 'mobx-react-lite';
-
-import Store from './store/BusinessStore';
+import store from './store';
 
 export const Header = observer(() => {
     return (
-        <h1>Completed: {Store.countOfCompleted}</h1>
+        <h1>Completed: {store.business.countOfCompleted}</h1>
     );
 });

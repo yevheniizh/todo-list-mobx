@@ -1,10 +1,10 @@
 import {observer} from 'mobx-react-lite';
-import Store from './store/BusinessStore';
+import store from './store';
 import { useState } from 'react';
 
 export const AddToDo = observer(() => {
     const [data, setData] = useState('');
-    const {addToDo} = Store;
+    const {addToDo} = store.business;
 
     const onSubmit = (e) => {
         e.preventDefault();

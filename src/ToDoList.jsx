@@ -1,8 +1,8 @@
 import {observer} from 'mobx-react-lite';
-import Store from './store/BusinessStore';
+import store from './store';
 
 export const ToDoList = observer(() => {
-    const {todos} = Store;
+    const {todos, completeToDo} = store.business;
 
     if(!todos.length) {
         return <h4>No todos</h4>
@@ -13,7 +13,7 @@ export const ToDoList = observer(() => {
             <ul>
                 {todos.map((todo) => (
                     <li key={todo.id}>
-                        <input onChange={() => Store.completeToDo(todo.id)} type='checkbox' checked={todo.completed} />
+                        <input onChange={() => completeToDo(todo.id)} type='checkbox' checked={todo.completed} />
                         {todo.title}
                     </li>
                 ))}
