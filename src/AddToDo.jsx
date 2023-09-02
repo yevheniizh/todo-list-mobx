@@ -4,10 +4,11 @@ import { useState } from 'react';
 
 export const AddToDo = observer(() => {
     const [data, setData] = useState('');
+    const {addToDo} = Store;
 
     const onSubmit = (e) => {
         e.preventDefault();
-        Store.addToDo(data);
+        addToDo(data);
     }
 
     return (

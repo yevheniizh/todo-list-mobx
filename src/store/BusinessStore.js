@@ -1,17 +1,11 @@
-import {makeObservable, observable, action, computed, reaction, toJS} from 'mobx';
+import {makeAutoObservable, reaction, toJS} from 'mobx';
 
 class store {
   todos = [];
   name = '';
 
   constructor() {
-    makeObservable(this, {
-      todos: observable,
-      name: observable,
-      countOfCompleted: computed,
-      addToDo: action,
-      completeToDo: action,
-    })
+    makeAutoObservable(this, {}, { autoBind: true });
 
     reaction(() => this.todos.length, () => {
         console.log('send todos to server', toJS( this.todos ));
